@@ -508,6 +508,9 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
 
+    # Django-Allauth
+    'allauth.socialaccount.providers.keycloak',
+
     # GeoNode
     'geonode',
 )
@@ -663,7 +666,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'geonode.context_processors.resource_urls',
                 'geonode.geoserver.context_processors.geoserver_urls',
-                'geonode.themes.context_processors.custom_theme'
+                'geonode.themes.context_processors.custom_theme',
             ],
             # Either remove APP_DIRS or remove the 'loaders' option.
             # 'loaders': [
@@ -1935,6 +1938,10 @@ SOCIALACCOUNT_PROVIDERS = {
             'link',
             'gender',
         ]
+    },
+    'keycloak': {
+        'KEYCLOAK_URL': 'http://keycloak:8080/auth',
+        'KEYCLOAK_REALM': 'GIS Core', 
     },
 }
 

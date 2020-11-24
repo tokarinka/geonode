@@ -82,8 +82,13 @@ urlpatterns = [
     url(r'^robots\.txt$', TemplateView.as_view(
         template_name='robots.txt'), name='robots'),
     url(r'(.*version\.txt)$', version.version, name='version'),
-    url(r'^messages/', include(msg_urls))
+    url(r'^messages/', include(msg_urls)),
 
+    # Django Keycloak
+    # url(r'^keycloak/', include('django_keycloak.urls')),
+
+    #Django-Allauth
+    # url(r'^accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += [

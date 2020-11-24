@@ -32,11 +32,9 @@ from geonode import get_version
 from geonode.groups.models import GroupProfile
 from geonode.base.templatetags.base_tags import facets
 
-
 class AjaxLoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
     username = forms.CharField()
-
 
 def ajax_login(request):
     if request.method != 'POST':
