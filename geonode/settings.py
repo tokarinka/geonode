@@ -513,6 +513,7 @@ INSTALLED_APPS = (
 
     # GeoNode
     'geonode',
+    'geonode.keycloak'
 )
 
 INSTALLED_APPS += ('markdownify',)
@@ -845,7 +846,6 @@ ACTSTREAM_SETTINGS = {
     'USE_JSONFIELD': True,
     'GFK_FETCH_DEPTH': 1,
 }
-
 
 # Email for users to contact admins.
 THEME_ACCOUNT_CONTACT_EMAIL = os.getenv(
@@ -1941,7 +1941,7 @@ SOCIALACCOUNT_PROVIDERS = {
     },
     'keycloak': {
         'KEYCLOAK_URL': 'http://keycloak:8080/auth',
-        'KEYCLOAK_REALM': 'GIS Core', 
+        'KEYCLOAK_REALM': 'master', 
     },
 }
 
