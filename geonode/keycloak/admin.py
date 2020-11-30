@@ -17,10 +17,10 @@ def synchronize_roles(modeladmin, request, queryset):
     roles = helper.keycloak_get_roles(realm, client_id, token)
 
     for role in roles:
-        group, _ = Group.objects.get_or_create(name=role["name"])
+        group, _ = GroupProfile.objects.get_or_create(title=role["name"], slug=role["name"], description= role.get("description", ""))
 
         try:
-            KeycloakRole.objects.get(name=role["name"])
+            KeycloakRole.objects.get(keycloak_id=role["id"])
         except KeycloakRole.MultipleObjectsReturned:
             pass
         except KeycloakRole.DoesNotExist:
