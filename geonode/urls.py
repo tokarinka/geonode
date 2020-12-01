@@ -83,12 +83,6 @@ urlpatterns = [
         template_name='robots.txt'), name='robots'),
     url(r'(.*version\.txt)$', version.version, name='version'),
     url(r'^messages/', include(msg_urls)),
-
-    # Django Keycloak
-    # url(r'^keycloak/', include('django_keycloak.urls')),
-
-    #Django-Allauth
-    # url(r'^accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += [
@@ -98,6 +92,9 @@ urlpatterns += [
 
     # Map views
     url(r'^maps/', include('geonode.maps.urls')),
+
+    # Keycloak views
+    url(r'^keycloak/', include('geonode.keycloak.urls', namespace='keycloakrole')),
 
     # Catalogue views
     url(r'^catalogue/', include('geonode.catalogue.urls')),
